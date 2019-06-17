@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # To install:
-# $ wget https://github.com/jtyler/homelab/raw/master/ubuntu_start.sh
+# $ wget https://github.com/jtyler22/homelab/raw/master/ubuntu_start.sh
 # $ chmod +x ubuntu_start.sh
 # $ sudo ./ubuntu_start.sh
 
