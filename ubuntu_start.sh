@@ -3,9 +3,19 @@ if [[ $EUID > 0 ]]
   then echo "Script must be run as root."
   exit 1
 fi
+
+# Prep for Docker install
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
+add-apt-repository \
+  "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) \
+  stable"
+
 apt update
 apt install -y \
-  openssh-server
+  openssh-server \
+  docker-ce docker-ce-cli containerd.io \
+  lxd
 
 # Remove password requirement for sudoers
 printf "# Remove password requirement for sudoers\n%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/nopasswd
