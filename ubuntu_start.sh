@@ -31,7 +31,7 @@ sudo apt update
 sudo apt install -y \
   openssh-server \
   docker-ce docker-ce-cli containerd.io \
-  spice-vdagent
+  lxd
 
 # Install Docker-Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.24.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
