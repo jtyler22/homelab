@@ -4,7 +4,6 @@ if [[ $EUID > 0 ]]
   exit 1
 fi
 apt update
-apt upgrade -y
 apt install -y \
   openssh-server
 
