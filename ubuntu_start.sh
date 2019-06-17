@@ -1,4 +1,10 @@
 #!/bin/bash
+
+# To install:
+# $ wget https://github.com/jtyler/homelab/raw/master/ubuntu_start.sh
+# $ chmod +x ubuntu_start.sh
+# $ sudo ./ubuntu_start.sh
+
 if [[ $EUID > 0 ]]
   then echo "Script must be run as root."
   exit 1
