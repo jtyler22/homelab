@@ -11,14 +11,14 @@ if [[ $EUID > 0 ]]
 fi
 
 # Prep for Docker install
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -
-add-apt-repository \
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository \
   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) \
   stable"
 
-apt update
-apt install -y \
+sudo apt update
+sudo apt install -y \
   openssh-server \
   docker-ce docker-ce-cli containerd.io \
   lxd
@@ -27,12 +27,12 @@ apt install -y \
 printf "# Remove password requirement for sudoers\n%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers.d/nopasswd
 
 # Disable password authentication
-sed -i -e 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
-service sshd restart
+sudo sed -i -e 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
+sudo service sshd restart
 
 # Import key from Github
 mkdir -p ~/.ssh
 curl https://github.com/jtyler22.keys -o ~/.ssh/authorized_keys
 
 # Disable ufw
-ufw disable
+sudo ufw disable
